@@ -1,0 +1,188 @@
+@lineHeight: 48px;
+@boxShadowColor: rgba(0, 0, 0, .4);
+@color: #29324e;
+@maxWidth: 100%;
+@captionFontSize: 1em;
+@iconFontSize: @captionFontSize;
+@closeIconFontSize: 0.8em;
+.ui.d-tab {
+	background-color: #ffffff;
+	overflow: hidden;
+	> nav {
+		overflow: auto;
+		display: inline-block;
+		width: @maxWidth;
+		height: @lineHeight;
+		background: #f4f4f4;
+		box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06);
+		> ul {
+			list-style: none;
+			padding: 0px;
+			display: inline-block;
+			margin: 0;
+			> li {
+				cursor: pointer;
+				height: @lineHeight;
+				line-height: @lineHeight;
+				padding: 0 10px;
+				float: left;
+				font-size: @captionFontSize;
+				color: @color;
+				> .caption {
+					display: block;
+					float: left;
+					span {
+						display: block;
+						float: right;
+					}
+					> i {
+						line-height: inherit;
+						float: left;
+						font-size: @iconFontSize;
+					}
+				}
+
+				.close-btn {
+					display: block;
+					float: right;
+					opacity: 0.3;
+					margin-left: 10px;
+					width: @captionFontSize*1.25;
+					height: @captionFontSize*1.25;
+					line-height: @captionFontSize*1.25;
+					margin-top: @captionFontSize;
+					border-radius: 50%;
+					i {
+						font-size: @closeIconFontSize;
+						line-height: @captionFontSize;
+					}
+				}
+				.close-btn:hover {
+					opacity: 0.6;
+				}
+			}
+			> li.active, > li.active:hover {
+				background-color: #ffffff;
+				box-shadow: inset 0 2px 0 @boxShadowColor;
+				color: @color;
+			}
+
+			> li:hover {
+				color: @color;
+				background-color: rgba(233, 230, 202, 0.3);
+			}
+
+		}
+	}
+	> ul {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.ui.d-tab.bottom-bar {
+	position: relative;
+	> nav {
+		position: absolute;
+		bottom: 0px;
+		box-shadow: inset 0 2px 3px rgba(203, 196, 130, 0.06);
+		> ul {
+			> li.active, > li.active:hover {
+				box-shadow: inset 0 -2px 0 @boxShadowColor;
+			}
+		}
+	}
+	> ul {
+		overflow: auto;
+		top: 0px;
+
+		position: absolute;
+		bottom: @lineHeight;
+	}
+}
+
+.ui.d-tab.left-bar, .ui.d-tab.right-bar {
+	position: relative;
+	> nav {
+		position: absolute;
+		top: 0px;
+		bottom: 0px;
+
+		display: inline-block;
+		overflow: hidden;
+		width: auto;
+		height: 100%;
+		> ul {
+			> li {
+				float: none;
+				line-height: initial;
+				display: block;
+				text-align: center;
+				padding-top: 0px;
+				> .caption {
+					line-height: @lineHeight;
+					float: left;
+					display: inline-block;
+				}
+				> .close-btn {
+					float: left;
+				}
+				.close-btn:hover {
+					border-color: inherit;
+				}
+			}
+		}
+	}
+	> ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+	}
+}
+
+.ui.d-tab.left-bar {
+	> nav {
+		left: 0px;
+		> ul {
+			> li.active, > li.active:hover {
+				box-shadow: 2px 0 0 @boxShadowColor inset;
+			}
+		}
+	}
+	> ul {
+		left: 140px;
+	}
+}
+
+.ui.d-tab.right-bar {
+	position: relative;
+	> nav {
+		right: 0px;
+		> ul {
+			> li.active, > li.active:hover {
+				box-shadow: -2px 0 0 @boxShadowColor inset;
+			}
+		}
+	}
+	> ul {
+		right: 140px;
+	}
+}
+
+@media only screen and (max-width: 468px) {
+	.ui.d-tab {
+		> nav {
+			text-align: center;
+		}
+	}
+}
+
+.ui.card-book {
+	.item {
+		display: none;
+	}
+	.item.active {
+		display: block;
+	}
+}
